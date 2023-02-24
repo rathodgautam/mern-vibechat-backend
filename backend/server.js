@@ -7,6 +7,7 @@ const userRouters = require('./routes/userRoutes');
 const chatRouters = require('./routes/chatRoutes');
 const messageRouters = require('./routes/messageRoutes');
 const path = require('path');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -14,6 +15,12 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // to accept json data
+
+app.use(cors({
+  origin: 'https://vibechatting.netlify.app'
+}));
+
+  
 
 app.get("/",(req,res)=>{
  res.send( "API is Running");
