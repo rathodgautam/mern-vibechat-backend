@@ -18,6 +18,9 @@ app.use(express.json()); // to accept json data
 app.get("/",(req,res)=>{
  res.send( "API is Running");
 })
+app.use(cors({
+  origin: 'https://vibechatting.netlify.app'
+}));
 
 app.use("/api/user", userRouters);
 app.use("/api/chat", chatRouters);
@@ -46,6 +49,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT ;
  const server = app.listen(PORT, console.log(`Server Started on PORT http://localhost:${PORT}`))
 
+ 
  const io = require("socket.io")(server, {
     pingTimeout : 60000,
     cors : {
