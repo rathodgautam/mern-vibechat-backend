@@ -60,7 +60,7 @@ const PORT = process.env.PORT ;
  const io = require("socket.io")(server, {
     pingTimeout : 60000,
     cors : {
-        origin: "https://vibechatting.netlify.app/",
+        origin: "https://vibechatting.netlify.app",
     },
  });
 
